@@ -57,46 +57,11 @@ The dataset includes outcomes from the Human-in-the-Loop MES approach, which:
 2. Allows participants to adjust the amount of budget allocated to algorithmic decision-making vs. deliberation
 3. Provides a mechanism for participants to modify algorithmic decisions during the deliberation phase
 
-## Research Applications
-This dataset is valuable for researchers studying:
-- Democratic innovations combining voting and deliberation
-- Algorithmic fairness in resource allocation
-- Group composition effects on deliberation outcomes
-- Human-algorithm interaction in collective decision-making
-- Participatory budgeting methodologies
-- Preference clustering for deliberation
-- Decision-making transparency and justification
-
-## Usage Examples
-```python
-# Example 1: Analyze voting patterns and project popularity
-import pandas as pd
-
-# Load voting data and count approvals per project
-voting = pd.read_csv('voter_pre_voting.csv')
-project_votes = {col: voting[col].value_counts().get('yes', 0) for col in voting.columns[1:]}
-sorted_projects = sorted(project_votes.items(), key=lambda x: x[1], reverse=True)
-print("Top 5 most popular projects:")
-for project_id, votes in sorted_projects[:5]:
-    print(f"Project {project_id}: {votes} votes")
-
-# Example 2: Compare deliberation outcomes between group types
-delib = pd.read_csv('deliberation_outcomes.csv')
-print("\nHomogeneous vs. Heterogeneous Deliberation:")
-print(delib[['project_id', 'Homogeneous_points', 'Heterogeneous_points']].head(10))
-
-# Example 3: Run the radial clustering algorithm
-# python radial_clustering.py
-```
-
 ## Citation
 If you use this data in your research, please cite:
 ```
 Yang, J. C., & Bachmann, F. (2024). Bridging Voting and Deliberation with Algorithms: Field Insights from vTaiwan and Kultur Komitee. [Publication details]
 ```
 
-## License
-[Specify license type]
-
 ## Acknowledgments
-We thank the entire KK24 committee and all participating citizens for their contributions to this research and to participatory democracy. Special thanks to Noemi Scheurer and Mia Odermatt, the main organizers of Kultur Komitee Winterthur, for their openness to experimenting with innovative methods.
+We thank the entire KK24 committee and all participating Winterthur citizens and residents for their contributions to this research and to participatory democracy. Special thanks to Noemi Scheurer and Mia Odermatt, the main organizers of Kultur Komitee Winterthur, for their openness to experimenting with innovative methods.
