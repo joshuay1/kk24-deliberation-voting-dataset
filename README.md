@@ -7,6 +7,16 @@ KK24 represents an innovative democratic format combining elements of participat
 
 The repository includes the complete dataset, from initial voting preferences to final funding decisions, along with the implementation of novel algorithms for group formation and voting aggregation.
 
+## Theoretical Background
+Traditional deliberative processes typically treat voting and deliberation as separate mechanisms rather than complementary parts of a unified decision-making system. The Preference-based Clustering for Deliberation (PCD) framework bridges this gap by using voting data to create more effective deliberation groups.
+Group deliberation often leads to middle-ground solutions that fail to address niche interests, such as local or specific community needs. The theoretical foundations for our approach draw from key concepts in deliberative democracy, including Fraser's (1990) emphasis on creating spaces for marginalized groups to deliberate autonomously, Mansbridge's (1994) "enclaves of protected discourse," and Sunstein's (2017) "Enclave Deliberation" concept, which acknowledges both the potential to address inequalities and the risks of group polarization.
+
+Our PCD approach implements these ideas through a structured process:
+
+- All participants cast their votes on the projects under consideration
+- Participants with similar voting patterns are grouped together for homogeneous deliberation, creating spaces where niche interests can be fully explored
+- Participants are then reconfigured into diverse groups for heterogeneous deliberation, building broader consensus while ensuring minority viewpoints have already been developed
+
 ## Dataset Files
 
 ### Voting Data
@@ -43,6 +53,8 @@ The repository includes the complete dataset, from initial voting preferences to
 ## Methods and Algorithms
 
 ### Radial Clustering for Group Formation
+While the PCD framework can be implemented using various clustering algorithms, for the KK24 case study we employed a Radial Clustering method. Most standard clustering algorithms like k-Means create uneven groups or exclude outliers. The Radial Clustering method addresses these challenges by projecting participants into a two-dimensional opinion space and dividing it into "pizza slice" sectors, with each sector containing an equal number of participants.
+
 The `radial_clustering.py` script implements the novel approach described in the paper for creating balanced deliberation groups based on participant preferences. The algorithm:
 
 1. Applies Principal Component Analysis (PCA) to reduce the high-dimensional voting data to a 2D representation
